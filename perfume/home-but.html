@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-Log</title>
+    <style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+  }
+
+  /* Navigation Bar */
+  nav {
+        background-color: #000; 
+        padding: 0.5rem 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky; 
+        top: 0; 
+        z-index: 1000; 
+    }
+
+
+  .logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .logo img {
+    height: 30px;
+    margin-right: 10px;
+  }
+
+  .logo h1 {
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: normal;
+    color: #fff;
+    font-style: 'Raleway', sans-serif;
+  }
+
+  nav ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin-left: 12px;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: #f0f0f0;
+    padding: 8px 25px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+    letter-spacing: 1px;
+  }
+
+  nav ul li a:hover {
+    background-color: #444;
+  }
+
+  .nav-btn-login {
+        color: #fff;
+        background-color: #99130491;
+        border: none;
+        transition: background-color 0.3s;
+      }
+
+      .nav-btn-login:hover {
+        background-color: #444444;
+      }
+
+      .nav-btn-signup {
+        color: #ffffff;
+        background-color: transparent;
+        border: 2px solid #99130491;
+        transition: background-color 0.3s, color 0.3s;
+        margin-left: 12px;
+        margin-right: 12px;
+      }
+
+      .nav-btn-signup:hover {
+        background-color: #99130491;
+        color: #fff;
+      }
+
+  /* Hamburger Menu */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 18px;
+    z-index: 101; 
+  }
+
+  .hamburger div {
+    height: 3px;
+    background-color: #fff;
+  }
+
+  #navLinks {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    text-align: center;
+  }
+
+  #navLinks li {
+    margin: 10px 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    nav ul {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    #navLinks {
+      display: none; 
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background-color: #000;
+      padding: 1rem;
+      width: 100%;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    #navLinks li {
+      margin: 12px 0;
+    }
+
+    /* Show the menu when 'active' class is added */
+    #navLinks.active {
+      display: flex;
+    }
+  }
+
+  /* Hero Section */
+  .hero-section {
+        position: relative;
+        height: 90vh;
+        background-image: url('../HOMEPAGE/images/perfume.jpg');
+        background-size: cover;
+        background-position: center 40%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        overflow: hidden;
+        z-index: 0; 
+      }
+
+      .hero-section::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+      }
+
+      .hero-content {
+        position: absolute;
+        top: 20%;
+        left: 5%;
+        z-index: 1;
+        color: white;
+        width: 40%;
+        max-width: 500px;
+        font-size: 4vw;
+        line-height: 1.5;
+        word-wrap: break-word;
+        padding: 0 10px;
+      }
+
+      @media (max-width: 768px) {
+        .hero-content {
+          top: 25%;
+          left: 10%;
+          width: 80%;
+          font-size: 8vw;
+          text-align: center;
+        }
+      }
+
+      .hero-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        word-wrap: break-word;
+        white-space: normal;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .hero-section p {
+        font-size: 1rem;
+        color: #ddd;
+        margin-bottom: 20px;
+        word-wrap: break-word;
+        white-space: normal;
+      }
+      
+.hero-note{
+  font-size: 0.85rem;
+  line-height: 1.3;
+  margin-top: 10px;
+  color: #ddd;
+}
+
+.hero-note span{
+  font-weight: bold;
+  color: #ffd7d7;
+}
+
+@media (max-width: 768px){
+  .hero-note{ font-size: 0.75rem; }
+}
+      .shop-now-btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+        background-color: #670c02ed;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+       
+        display: inline-block;
+        margin-top: 20px;
+        
+      }
+
+      .hero-actions{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.cta-btn{
+  padding: 12px 25px;
+  font-size: 1rem;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  display: inline-block;
+  transition: background-color 0.3s, transform 0.15s ease;
+}
+
+.cta-btn:hover{
+  transform: translateY(-1px);
+}
+
+.cta-login{
+  background-color: #670c02ed;
+}
+
+.cta-login:hover{
+  background-color: #6c6c6c91;
+}
+
+.cta-signup{
+  background-color: transparent;
+  border: 2px solid #99130491;
+}
+
+.cta-signup:hover{
+  background-color: #99130491;
+}
+
+      /* Features Section */
+      .features-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        padding: 20px;
+        background-color: #f9f9f9;
+        flex-wrap: wrap;
+      }
+
+      .feature {
+        text-align: center;
+        max-width: 250px;
+        margin: 15px;
+      }
+
+      .feature-icon img {
+        width: 50px;  
+        height: 50px; 
+        object-fit: cover; 
+        margin: 0 auto; 
+      }
+
+      .feature-title {
+        font-weight: bold;
+        margin: 10px 0 5px;
+        font-size: 1.1rem;
+        color: #000; 
+      }
+
+      .feature-description {
+        color: #000; 
+        font-size: 14px;
+      }
+
+       
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.5;
+    }
+
+     /* Newcomers Title */
+     .new-offers-title {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-top: 30px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .new-offers-title::after {
+      content: "";
+      display: block;
+      width: 15%;  
+      height: 2px;
+      background-color: #991304;
+      margin: 10px auto;
+    }
+
+    /* Responsive for smaller screens */
+@media (max-width: 768px) {
+  .new-offers-title {
+    font-size: 1.5rem;
+    margin-top: 20px; 
+    margin-bottom: 15px; 
+  }
+
+  .new-offers-title::after {
+    width: 30%; 
+  }
+}
+
+@media (max-width: 480px) {
+  .new-offers-title {
+    font-size: 1.3rem; 
+    margin-top: 15px;
+    margin-bottom: 10px; 
+  }
+
+  .new-offers-title::after {
+    width: 50%; 
+  }
+}
+
+/* Newcomers Section */
+.newcomers-offers-container {
+  background-color: #ffffff;
+  padding-top: 5px;
+  padding-bottom: 40px;
+}
+
+.offers-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; 
+  gap: 15px;
+  flex-wrap: wrap; 
+  margin: 0 auto;
+  max-width: 900px;
+  padding: 20px;
+}
+
+/* Left and Right Column Containers */
+.offers-left, .offers-right {
+  position: relative;
+  border-radius: 8px;
+  width: 48%;  
+  height: 250px; 
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease;
+  opacity: 1;
+}
+
+/* Left Column */
+.offers-left {
+  background-image: url('../HOMEPAGE/images/offer1.jpg');
+}
+
+/* Right Column */
+.offers-right {
+  background-image: url('../HOMEPAGE/images/offer\ 2.jpg');
+}
+
+.offers-left::after,
+.offers-right::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 0;
+}
+
+/* Content (Text) inside the Left and Right columns */
+.offers-left .content, .offers-right .content {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  color: white;
+  width: 90%;
+  z-index: 1;
+}
+
+/* Content Titles */
+.offers-left .content h2, .offers-right .content h2 {
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+/* Content Descriptions */
+.offers-left .content p, .offers-right .content p {
+  font-size: 0.9rem;
+  margin-top: 10px;
+  color: #ddd;
+}
+
+.offers-left:hover, .offers-right:hover {
+  transform: scale(1.05); 
+}
+
+/* Media Query for Small Screens (Mobile) */
+@media (max-width: 768px) {
+  .offers-section {
+    flex-direction: column;
+    align-items: center; 
+  }
+
+  .offers-left, .offers-right {
+    width: 90%; 
+    height: 200px;
+    margin-bottom: 15px; 
+  }
+
+  .offers-left .content h2, .offers-right .content h2 {
+    font-size: 1.2rem; 
+  }
+
+  .offers-left .content p, .offers-right .content p {
+    font-size: 0.85rem; 
+  }
+}
+
+      /* Footer */
+      footer {
+        background-color: #000; 
+        color: #fff;
+        padding: 20px;
+        font-size: 0.9rem; 
+        text-align: center;
+      }
+
+      footer p {
+        margin: 10px 0;
+      }
+
+      .footer-links {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-links li {
+        display: inline;
+        margin: 0 10px;
+      }
+
+      .footer-links li a {
+        color: #fff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        transition: color 0.3s;
+      }
+
+      .footer-links li a:hover {
+        color: #991304; 
+      }
+
+      @media (max-width: 768px) {
+        footer {
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+ <nav>
+    <div class="logo">
+      <img src="../WEBSITE-50%/images/kai5.png" alt="Logo">
+      <h1>Parfum</h1>
+    </div>
+  
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  
+    <ul id="navLinks">
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="about us.html">About</a></li>
+      <li><a href="log in.html" class="nav-btn-login">Log In</a></li>
+      <li><a href="sign up.html" class="nav-btn-signup">Sign Up</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="hero-content">
+      <h2>CHOOSE YOUR FAVORITE PERFUME</h2>
+      <p>
+        Discover our exclusive collection of fragrances, crafted for elegance and luxury.
+        Each scent is designed to evoke sophistication and timeless beauty.
+      </p>
+
+      <!-- Replaced Shop Now with Login/Signup -->
+      <div class="hero-actions">
+        <a href="log in.html" class="cta-btn cta-login">Log In to Shop</a>
+        <a href="sign up.html" class="cta-btn cta-signup">Create Account</a>
+      </div>
+
+      <div class="hero-note">
+        <span>Note:</span> You can preview featured scents below. Full shopping access is available after you log in.
+      </div>
+    </div>
+  </div>
+  
+  
+      <!-- Features Section -->
+      <div class="features-container">
+        <div class="feature">
+          <div class="feature-icon">
+            <img src="../HOMEPAGE/images/shipped.png" alt="Free Shipping" />
+          </div>
+          <div class="feature-title">Free Shipping</div>
+          <div class="feature-description">We offer free worldwide shipping on all orders.</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <img src="../HOMEPAGE/images/medal (1).png" alt="100% Authentic" />
+          </div>
+          <div class="feature-title">100% Authentic</div>
+          <div class="feature-description">Our perfumes are 100% authentic and sourced directly from the manufacturers.</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">
+            <img src="../HOMEPAGE/images/lock-lines.png" alt="Secure Payment" />
+          </div>
+          <div class="feature-title">Secure Payment</div>
+          <div class="feature-description">We ensure secure payment methods for a hassle-free experience.</div>
+        </div>
+      </div>
+  
+  
+      
+     <!-- Newcomers Section -->
+  <div class="newcomers-offers-container">
+    <!-- Newcomers Title -->
+    <div class="new-offers-title">
+      Special Offers for Newcomers
+    </div>
+
+    <!-- Newcomers Section -->
+    <div class="offers-section">
+      <!-- Left Column -->
+      <a href="sign up.html" class="offers-left">
+        <div class="content">
+          <h2>Exclusive Welcome Discount</h2>
+          <p>Get 20% off your first purchase. Use code: WELCOME20 at checkout.</p>
+        </div>
+      </a>
+
+      
+      <!-- Right Column -->
+      <a href="log in.html" class="offers-right">
+        <div class="content">
+          <h2>Free Shipping on First Order</h2>
+          <p>Enjoy free shipping with no minimum purchase required.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  
+   <!-- Footer -->
+   <footer>
+    <p>&copy; 2024 RRJJ Scents. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="privacy policy.html">Privacy Policy</a></li>
+      <li><a href="terms of service.html">Terms of Service</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </footer>
+    
+</body>
+<script>
+  
+      function toggleMenu() {
+        const navLinks = document.getElementById('navLinks');
+        const hamburger = document.querySelector('.hamburger');
+
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+      }
+   
+</script>
+</html>
+
+
+
+
